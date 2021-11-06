@@ -2,11 +2,13 @@ import { Col, Layout, Row, Switch } from "antd";
 import { Header, Content, Footer } from "antd/lib/layout/layout";
 import { useRootStore } from "../Stores/RootStoreContext";
 import { Vm } from "./MainLayoutVm";
+import {HomeOutlined} from '@ant-design/icons';
+import { RouteNames } from "../Routes/RouteNames";
 
 interface LayoutProps {}
 
 export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
-  const { UIStore } = useRootStore();
+  const { UIStore, routerStore } = useRootStore();
 
   return (
     <Layout>
@@ -20,6 +22,12 @@ export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
             xl={{ span: 10, offset: 7 }}
           >
             <div className="benchmark-language-bar">
+              <HomeOutlined
+                style={{ fontSize: "16px", color: "white" }}
+                onClick={() => {
+                  routerStore.goTo(RouteNames.Home);
+                }}
+              />
               <Switch
                 checkedChildren={"Svenska"}
                 unCheckedChildren={"English"}

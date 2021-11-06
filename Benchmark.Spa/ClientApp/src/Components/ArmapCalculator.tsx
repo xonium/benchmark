@@ -4,24 +4,62 @@ import {
   Form,
   InputNumber,
   Row,
+  Slider,
   Statistic,
   Table,
 } from "antd";
+import { observer, useLocalStore } from "mobx-react";
 import { BenchmarkGutter } from "../Global";
 import { IAthleteReps } from "../Types/types";
 
 export interface IAmrapCalculatorProps {
-  rounds: number;
-  reps: number;
   wodLengthInSeconds: number;
   repsPerRound: number;
   maxNumberOfRounds: number;
-  onRoundsChange: (value: number) => void;
-  onRepsChange: (value: number) => void;
   athleteReps?: IAthleteReps[] | undefined;
 }
 
-export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
+export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
+  const localStore = useLocalStore(
+    () => ({
+      repsCount: 0,
+      setRepsCount(value: number) {
+        localStore.repsCount = value;
+      },
+      setRounds(value: number) {        
+        let calc = (value * props.repsPerRound) + this.reps;
+        if (calc <= props.maxNumberOfRounds * props.repsPerRound) {
+          localStore.repsCount = (value * props.repsPerRound) + this.reps;
+        }
+        else {
+          localStore.repsCount = props.maxNumberOfRounds * props.repsPerRound;
+        }
+      },
+      setReps(value: number) {
+        if (value === -1) {
+          let calc = ((this.rounds - 1) * props.repsPerRound) + props.repsPerRound - 1;
+          if (calc >= 0) {
+            localStore.repsCount = calc;
+          }
+        }
+        else {
+          let calc = (this.rounds * props.repsPerRound) + value;
+          if (calc <= props.maxNumberOfRounds * props.repsPerRound) {
+            localStore.repsCount = (this.rounds * props.repsPerRound) + value;
+          }
+        }
+
+      },
+      get rounds() {
+        return Math.floor(this.repsCount / props.repsPerRound);
+      },
+      get reps() {
+        return this.repsCount % props.repsPerRound;
+      },
+    }),
+    props
+  );
+
   const fmtMSS = (s: number) => {
     return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
   };
@@ -65,8 +103,6 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
     },
   ];
 
-  const totalReps = (props: IAmrapCalculatorProps) => props.rounds * props.repsPerRound + props.reps;
-
   const repsStyle = { display: "inline-block", width: "20%", borderLeft: "1px solid #f0f0f0", padding: "3px" };
   const repNumberStyle = { marginBottom: "4px" };
   const repsBorderStyle = { borderTop: "3px solid #d3adf7" };
@@ -101,69 +137,58 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
             <Form.Item label="Rounds" className="benchmark-label">
               <InputNumber
                 size="large"
-                value={props.rounds}
+                value={localStore.rounds}
                 min={0}
                 max={props.maxNumberOfRounds}
                 defaultValue={0}
-                onChange={(value: number) => props.onRoundsChange(value)}
+                onChange={(value: number) => localStore.setRounds(value)}
               />
             </Form.Item>
 
             <Form.Item label="Reps" className="benchmark-label">
               <InputNumber
                 size="large"
-                value={props.reps}
+                value={localStore.reps}
                 min={-1}
                 max={props.repsPerRound}
                 defaultValue={0}
-                onChange={(value: number) => {
-                  if (
-                    value === props.repsPerRound &&
-                    props.rounds + 1 <= props.maxNumberOfRounds
-                  ) {
-                    props.onRepsChange(0);
-                    props.onRoundsChange(props.rounds + 1);
-                  } else if (value === -1 && props.rounds >= 1) {
-                    props.onRepsChange(props.repsPerRound - 1);
-                    props.onRoundsChange(props.rounds - 1);
-                  } else if (
-                    value >= 0 &&
-                    value < props.repsPerRound &&
-                    props.rounds < props.maxNumberOfRounds
-                  ) {
-                    props.onRepsChange(value);
-                  }
-                }}
+                onChange={(value: number) => localStore.setReps(value)}
               />
             </Form.Item>
           </Form>
+
+          <Slider
+            defaultValue={0}
+            value={localStore.repsCount}
+            min={0}
+            max={props.maxNumberOfRounds * props.repsPerRound}
+            onChange={(value: number) => localStore.setRepsCount(value)}
+          />
         </Col>
 
         {props.athleteReps && (
           <Col span={24}>
-            <div className="ant-statistic-title">
-                Athletes scores
-            </div>
+            <div className="ant-statistic-title">Athletes scores</div>
             <div style={repsBorderStyle}>
               <div style={repsStyle}>
-                <p style={repNumberStyle}>{totalReps(props) + 0}</p>
-                {fetchAthletes(totalReps(props) + 0, props.athleteReps)}
+                <p style={repNumberStyle}>{localStore.repsCount + 0}</p>
+                {fetchAthletes(localStore.repsCount + 0, props.athleteReps)}
               </div>
               <div style={repsStyle}>
-                <p style={repNumberStyle}>{totalReps(props) + 1}</p>
-                {fetchAthletes(totalReps(props) + 1, props.athleteReps)}
+                <p style={repNumberStyle}>{localStore.repsCount + 1}</p>
+                {fetchAthletes(localStore.repsCount + 1, props.athleteReps)}
               </div>
               <div style={repsStyle}>
-                <p style={repNumberStyle}>{totalReps(props) + 2}</p>
-                {fetchAthletes(totalReps(props) + 2, props.athleteReps)}
+                <p style={repNumberStyle}>{localStore.repsCount + 2}</p>
+                {fetchAthletes(localStore.repsCount + 2, props.athleteReps)}
               </div>
               <div style={repsStyle}>
-                <p style={repNumberStyle}>{totalReps(props) + 3}</p>
-                {fetchAthletes(totalReps(props) + 3, props.athleteReps)}
+                <p style={repNumberStyle}>{localStore.repsCount + 3}</p>
+                {fetchAthletes(localStore.repsCount + 3, props.athleteReps)}
               </div>
               <div style={repsStyle}>
-                <p style={repNumberStyle}>{totalReps(props) + 4}</p>
-                {fetchAthletes(totalReps(props) + 4, props.athleteReps)}
+                <p style={repNumberStyle}>{localStore.repsCount + 4}</p>
+                {fetchAthletes(localStore.repsCount + 4, props.athleteReps)}
               </div>
             </div>
           </Col>
@@ -172,14 +197,14 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
         <Col span={12}>
           <Statistic
             title="Total reps"
-            value={props.rounds * props.repsPerRound + props.reps}
+            value={localStore.repsCount}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Reps per second"
             value={(
-              (props.rounds * props.repsPerRound + props.reps) /
+              (localStore.rounds * props.repsPerRound + localStore.reps) /
               props.wodLengthInSeconds
             ).toFixed(2)}
           />
@@ -189,7 +214,7 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
             title="Seconds per rep"
             value={(
               props.wodLengthInSeconds /
-              (props.rounds * props.repsPerRound + props.reps)
+              (localStore.rounds * props.repsPerRound + localStore.reps)
             ).toFixed(2)}
           />
         </Col>
@@ -197,7 +222,7 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
           <Statistic
             title="Reps per 30 seconds"
             value={(
-              ((props.rounds * props.repsPerRound + props.reps) /
+              ((localStore.rounds * props.repsPerRound + localStore.reps) /
                 props.wodLengthInSeconds) *
               30
             ).toFixed(2)}
@@ -208,7 +233,7 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
           <Table
             pagination={false}
             dataSource={generateDataSource(
-              ((props.rounds * props.repsPerRound + props.reps) /
+              ((localStore.rounds * props.repsPerRound + localStore.reps) /
                 props.wodLengthInSeconds) *
                 30
             )}
@@ -218,4 +243,4 @@ export const AmrapCalculator = (props: IAmrapCalculatorProps) => {
       </Row>
     </>
   );
-};
+});

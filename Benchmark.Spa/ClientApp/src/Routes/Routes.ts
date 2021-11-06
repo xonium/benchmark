@@ -8,14 +8,24 @@ import { RouteNames } from "./RouteNames";
 
 const notFoundState = createRouterState(RouteNames.NotFound);
 
+const scrollToTop = async (
+  fromState: RouterState,
+  toState: RouterState,
+  routerStore: RouterStore
+) => {
+  window.scrollTo(0, 0);
+};
+
 export const Routes: Route[] = [
   {
     name: RouteNames.NotFound,
+    beforeEnter: scrollToTop,
     pattern: "/not-found",
   },
   {
     name: RouteNames.Home,
     pattern: "/",
+    beforeEnter: scrollToTop,
     onEnter: async (
         fromState: RouterState,
         toState: RouterState,
@@ -30,6 +40,7 @@ export const Routes: Route[] = [
   },
   {
     name: RouteNames.Benchmark,
+    beforeEnter: scrollToTop,
     pattern: "/benchmark/:slug",
     onEnter: async (
       fromState: RouterState,
@@ -49,6 +60,7 @@ export const Routes: Route[] = [
   },
   {
     name: RouteNames.Vocabulary,
+    beforeEnter: scrollToTop,
     pattern: "/vocabulary/:slug",
     onEnter: async (
       fromState: RouterState,
@@ -69,6 +81,7 @@ export const Routes: Route[] = [
   },
   {
     name: RouteNames.Equipment,
+    beforeEnter: scrollToTop,
     pattern: "/equipment/:slug",
     onEnter: async (
       fromState: RouterState,
@@ -89,6 +102,7 @@ export const Routes: Route[] = [
   },  
   {
     name: RouteNames.Movement,
+    beforeEnter: scrollToTop,
     pattern: "/movement/:slug",
     onEnter: async (
       fromState: RouterState,

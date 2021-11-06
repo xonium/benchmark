@@ -75,14 +75,10 @@ export const Benchmark = observer(() => {
       <Col span={24}>
         <Card title="Calculator">
           <AmrapCalculator 
-            rounds={benchmarkStore.rounds}
-            reps={benchmarkStore.reps}
             wodLengthInSeconds={(benchmarkStore.selected?.WorkoutDefinition.Minutes ?? 0)*60}
             repsPerRound={benchmarkStore.selected?.WorkoutDefinition.RepsPerRound ?? 0}
             maxNumberOfRounds={benchmarkStore.selected?.WorkoutDefinition.MaxNumberOfRounds ?? 0}
             athleteReps={benchmarkStore.selected?.AthleteReps}
-            onRoundsChange={(value:number) => benchmarkStore.setRounds(value)}
-            onRepsChange={(value:number) => benchmarkStore.setReps(value)}
           />
         </Card>
       </Col>

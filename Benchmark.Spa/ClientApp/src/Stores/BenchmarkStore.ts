@@ -9,20 +9,12 @@ export class BenchmarkStore {
         this.rootStore = rootStore;
 
         makeObservable(this, {
-            rounds: observable,
-            reps: observable,
             benchmarks: observable,
             selected: observable,
             setBenchmarks: action,
             setSelected: action,
-            setRounds: action,
-            setReps: action,
         });
     }
-
-    rounds: number = 0;
-
-    reps: number = 0;
 
     benchmarks: IBenchmark[] = []
 
@@ -34,13 +26,5 @@ export class BenchmarkStore {
 
     setSelected(benchmark: IBenchmark) {
         this.selected = benchmark;
-    }
-
-    setRounds(input: number) {
-        this.rounds = input;
-    }
-
-    setReps(input: number) {
-        this.reps = input;
     }
 }

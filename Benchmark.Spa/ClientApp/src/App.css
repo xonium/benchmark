@@ -1,0 +1,23 @@
+@import '~antd/dist/antd.css';
+
+.benchmark-fixed-header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.benchmark-content { 
+  padding: 84px 16px 84px 16px;
+  min-height: 280px;
+}
+
+.benchmark-language-bar {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  height: 64px;  
+}
+
+.benchmark-label label {
+  height: 38px;
+}

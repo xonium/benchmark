@@ -6,7 +6,7 @@ export const HomeData: IHomeResponse = {
       Id: "123",
       Slug: "comptrain-standard",
       Name: "CompTrain Standard",
-      ImageUrl: "/comptrain_standard.JPG",
+      ImageUrl: "../comptrain_standard.JPG",
       ImageText: "Amanandadad",
       Summary:
         "The CompTrain Standard is a short and potent benchmark workout that tests your ability to cycle burpees and barbell quickly. The 5 minutes will be over before you know it, so get ready to bring the intensity and leave it all in the floor!",
@@ -71,15 +71,15 @@ export const HomeData: IHomeResponse = {
           Athletes: [
             {
               Name: "Davidsdottir",
-              ImageSrc: "/davidsdottir.jpg",
+              ImageSrc: "../davidsdottir.jpg",
             },
             {
               Name: "Davidsdottir",
-              ImageSrc: "/davidsdottir.jpg",
+              ImageSrc: "../davidsdottir.jpg",
             },
             {
               Name: "Davidsdottir",
-              ImageSrc: "/davidsdottir.jpg",
+              ImageSrc: "../davidsdottir.jpg",
             },
           ],
         },
@@ -88,7 +88,7 @@ export const HomeData: IHomeResponse = {
           Athletes: [
             {
               Name: "Davidsdottir",
-              ImageSrc: "/davidsdottir.jpg",
+              ImageSrc: "../davidsdottir.jpg",
             },
           ],
         },

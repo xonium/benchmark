@@ -1,6 +1,7 @@
 import {
   Avatar,
   Col,
+  Divider,
   Form,
   InputNumber,
   Row,
@@ -11,6 +12,11 @@ import {
 import { observer, useLocalStore } from "mobx-react";
 import { BenchmarkGutter } from "../Global";
 import { IAthleteReps } from "../Types/types";
+import bronzeRank from "../Images/bronze_rank.png";
+import silverRank from "../Images/silver_rank.png";
+import goldRank from "../Images/gold_rank.png";
+import platinumRank from "../Images/platinum_rank.png";
+import diamondRank from "../Images/diamond_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -26,29 +32,27 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
       setRepsCount(value: number) {
         localStore.repsCount = value;
       },
-      setRounds(value: number) {        
-        let calc = (value * props.repsPerRound) + this.reps;
+      setRounds(value: number) {
+        let calc = value * props.repsPerRound + this.reps;
         if (calc <= props.maxNumberOfRounds * props.repsPerRound) {
-          localStore.repsCount = (value * props.repsPerRound) + this.reps;
-        }
-        else {
+          localStore.repsCount = value * props.repsPerRound + this.reps;
+        } else {
           localStore.repsCount = props.maxNumberOfRounds * props.repsPerRound;
         }
       },
       setReps(value: number) {
         if (value === -1) {
-          let calc = ((this.rounds - 1) * props.repsPerRound) + props.repsPerRound - 1;
+          let calc =
+            (this.rounds - 1) * props.repsPerRound + props.repsPerRound - 1;
           if (calc >= 0) {
             localStore.repsCount = calc;
           }
-        }
-        else {
-          let calc = (this.rounds * props.repsPerRound) + value;
+        } else {
+          let calc = this.rounds * props.repsPerRound + value;
           if (calc <= props.maxNumberOfRounds * props.repsPerRound) {
-            localStore.repsCount = (this.rounds * props.repsPerRound) + value;
+            localStore.repsCount = this.rounds * props.repsPerRound + value;
           }
         }
-
       },
       get rounds() {
         return Math.floor(this.repsCount / props.repsPerRound);
@@ -64,15 +68,27 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
   };
 
-  const generateDataSource = (repsPerThirtySeconds: number) => {
+  const generateDataSource = (
+    repsPerThirtySeconds: number,
+    repsPerRound: number,
+    rowsToGenerate: number
+  ) => {
     var dataSource = [];
 
-    for (let index = 1; index <= 10; index++) {
+    for (let index = 1; index <= rowsToGenerate; index++) {
+      let maxReps =
+        Math.ceil((repsPerThirtySeconds * index) % repsPerRound) ===
+        repsPerRound;
+
       dataSource.push({
         key: index,
         time: fmtMSS(index * 30),
-        round: Math.floor((repsPerThirtySeconds * index) / 60),
-        reps: Math.ceil((repsPerThirtySeconds * index) % 60),
+        round: !maxReps
+          ? Math.floor((repsPerThirtySeconds * index) / repsPerRound)
+          : Math.floor((repsPerThirtySeconds * index) / repsPerRound) + 1,
+        reps: !maxReps
+          ? Math.ceil((repsPerThirtySeconds * index) % repsPerRound)
+          : 0,
         totalReps: Math.ceil(repsPerThirtySeconds * index),
       });
     }
@@ -103,7 +119,12 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     },
   ];
 
-  const repsStyle = { display: "inline-block", width: "20%", borderLeft: "1px solid #f0f0f0", padding: "3px" };
+  const repsStyle = {
+    display: "inline-block",
+    width: "20%",
+    borderLeft: "1px solid #f0f0f0",
+    padding: "3px",
+  };
   const repNumberStyle = { marginBottom: "4px" };
   const repsBorderStyle = { borderTop: "3px solid #d3adf7" };
 
@@ -115,7 +136,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
         <div className="ant-avatar-group">
           <span className="ant-avatar ant-avatar-square ant-avatar-image"></span>
         </div>
-      )
+      );
     }
 
     return (
@@ -123,40 +144,61 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
         {filtered.map((x) => {
           return x.Athletes.map((a) => {
             return <Avatar alt={a.Name} shape="square" src={a.ImageSrc} />;
-          })
+          });
         })}
       </Avatar.Group>
-    )
+    );
   };
+
+  const selectRankImage = (reps: number) => {
+    if (reps < 60) {
+      return bronzeRank;
+    }
+    else if (reps >= 60 && reps < 80) {
+      return silverRank;
+    }
+    else if (reps >= 80 && reps < 100) {
+      return goldRank;
+    }
+    else if (reps >= 100 && reps < 120) {
+      return platinumRank;
+    }
+    else if (reps >= 120) {
+      return diamondRank;
+    }    
+  }
 
   return (
     <>
       <Row gutter={BenchmarkGutter}>
+        <Col span={8}>
+          <Form.Item label="Rounds" className="benchmark-label">
+            <InputNumber
+              size="large"
+              value={localStore.rounds}
+              min={0}
+              max={props.maxNumberOfRounds}
+              defaultValue={0}
+              onChange={(value: number) => localStore.setRounds(value)}
+            />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <Form.Item label="Reps" className="benchmark-label">
+            <InputNumber
+              size="large"
+              value={localStore.reps}
+              min={-1}
+              max={props.repsPerRound}
+              defaultValue={0}
+              onChange={(value: number) => localStore.setReps(value)}
+            />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <img src={selectRankImage(localStore.repsCount)} alt="ranks" style={{objectFit: "cover", maxHeight: "110px"}}/>
+        </Col>
         <Col span={24}>
-          <Form layout="inline">
-            <Form.Item label="Rounds" className="benchmark-label">
-              <InputNumber
-                size="large"
-                value={localStore.rounds}
-                min={0}
-                max={props.maxNumberOfRounds}
-                defaultValue={0}
-                onChange={(value: number) => localStore.setRounds(value)}
-              />
-            </Form.Item>
-
-            <Form.Item label="Reps" className="benchmark-label">
-              <InputNumber
-                size="large"
-                value={localStore.reps}
-                min={-1}
-                max={props.repsPerRound}
-                defaultValue={0}
-                onChange={(value: number) => localStore.setReps(value)}
-              />
-            </Form.Item>
-          </Form>
-
           <Slider
             defaultValue={0}
             value={localStore.repsCount}
@@ -165,7 +207,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
             onChange={(value: number) => localStore.setRepsCount(value)}
           />
         </Col>
-
+        <Divider />
         {props.athleteReps && (
           <Col span={24}>
             <div className="ant-statistic-title">Athletes scores</div>
@@ -193,12 +235,8 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
             </div>
           </Col>
         )}
-
         <Col span={12}>
-          <Statistic
-            title="Total reps"
-            value={localStore.repsCount}
-          />
+          <Statistic title="Total reps" value={localStore.repsCount} />
         </Col>
         <Col span={12}>
           <Statistic
@@ -228,14 +266,15 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
             ).toFixed(2)}
           />
         </Col>
-
         <Col span={24}>
           <Table
             pagination={false}
             dataSource={generateDataSource(
               ((localStore.rounds * props.repsPerRound + localStore.reps) /
                 props.wodLengthInSeconds) *
-                30
+                30,
+              props.repsPerRound,
+              (props.wodLengthInSeconds / 60) * 2
             )}
             columns={columns}
           />

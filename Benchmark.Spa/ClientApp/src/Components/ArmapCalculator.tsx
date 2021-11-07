@@ -17,6 +17,9 @@ import silverRank from "../Images/silver_rank.png";
 import goldRank from "../Images/gold_rank.png";
 import platinumRank from "../Images/platinum_rank.png";
 import diamondRank from "../Images/diamond_rank.png";
+import flowerRank1 from "../Images/flower_1_rank.png";
+import flowerRank2 from "../Images/flower_2_rank.png";
+import flowerRank3 from "../Images/flower_3_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -151,7 +154,16 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
   };
 
   const selectRankImage = (reps: number) => {
-    if (reps < 60) {
+    if (reps < 10) {
+      return flowerRank1;
+    }    
+    else if (reps >= 10 && reps < 20) {
+      return flowerRank2;
+    }
+    else if (reps >= 20 && reps < 30) {
+      return flowerRank3;
+    }
+    else if (reps >= 30 && reps < 60) {
       return bronzeRank;
     }
     else if (reps >= 60 && reps < 80) {
@@ -165,7 +177,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     }
     else if (reps >= 120) {
       return diamondRank;
-    }    
+    }
   }
 
   return (

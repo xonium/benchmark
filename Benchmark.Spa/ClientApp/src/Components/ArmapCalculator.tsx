@@ -27,6 +27,9 @@ import bridgesRank3 from "../Images/bridges_3_rank.png";
 import davidsdottirRank1 from "../Images/davidsdottir_1_rank.png";
 import davidsdottirRank2 from "../Images/davidsdottir_2_rank.png";
 import davidsdottirRank3 from "../Images/davidsdottir_3_rank.png";
+import fikowskiRank1 from "../Images/fikowski_1_rank.png";
+import fikowskiRank2 from "../Images/fikowski_2_rank.png";
+import fikowskiRank3 from "../Images/fikowski_3_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -197,8 +200,14 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     else if (reps >= 110 && reps < 120) {
       return davidsdottirRank3;
     }        
-    else if (reps >= 100 && reps < 120) {
-      return platinumRank;
+    else if (reps >= 120 && reps < 130) {
+      return fikowskiRank1;
+    }
+    else if (reps >= 130 && reps < 140) {
+      return fikowskiRank2;
+    }
+    else if (reps >= 140 && reps < 150) {
+      return fikowskiRank3;
     }
     else if (reps >= 120) {
       return diamondRank;
@@ -208,6 +217,11 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
   return (
     <>
       <Row gutter={BenchmarkGutter}>
+      <Col span={24}>
+          <div style={{display:"flex", justifyContent: "center"}}>
+            <img src={selectRankImage(localStore.repsCount)} alt="ranks" style={{objectFit: "cover", maxHeight: "160px"}}/>
+          </div>
+        </Col>
         <Col span={8}>
           <Form.Item label="Rounds" className="benchmark-label">
             <InputNumber
@@ -232,9 +246,6 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
             />
           </Form.Item>
         </Col>
-        <Col span={8}>
-          <img src={selectRankImage(localStore.repsCount)} alt="ranks" style={{objectFit: "cover", maxHeight: "110px"}}/>
-        </Col>
         <Col span={24}>
           <Slider
             defaultValue={0}
@@ -244,7 +255,6 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
             onChange={(value: number) => localStore.setRepsCount(value)}
           />
         </Col>
-        <Divider />
         {props.athleteReps && (
           <Col span={24}>
             <div className="ant-statistic-title">Athletes scores</div>

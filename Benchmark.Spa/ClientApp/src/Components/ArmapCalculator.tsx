@@ -12,7 +12,6 @@ import {
 import { observer, useLocalStore } from "mobx-react";
 import { BenchmarkGutter } from "../Global";
 import { IAthleteReps } from "../Types/types";
-import bronzeRank from "../Images/bronze_rank.png";
 import silverRank from "../Images/silver_rank.png";
 import goldRank from "../Images/gold_rank.png";
 import platinumRank from "../Images/platinum_rank.png";
@@ -23,6 +22,9 @@ import flowerRank3 from "../Images/flower_3_rank.png";
 import castroRank1 from "../Images/castro_1_rank.png";
 import castroRank2 from "../Images/castro_2_rank.png";
 import castroRank3 from "../Images/castro_3_rank.png";
+import bridgesRank1 from "../Images/bridges_1_rank.png";
+import bridgesRank2 from "../Images/bridges_2_rank.png";
+import bridgesRank3 from "../Images/bridges_3_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -174,11 +176,17 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     }
     else if (reps >= 50 && reps < 60) {
       return castroRank3;
-    }        
-    else if (reps >= 60 && reps < 80) {
-      return silverRank;
     }
-    else if (reps >= 80 && reps < 100) {
+    else if (reps >= 60 && reps < 70) {
+      return bridgesRank1;
+    }
+    else if (reps >= 70 && reps < 80) {
+      return bridgesRank2;
+    }
+    else if (reps >= 80 && reps < 90) {
+      return bridgesRank3;
+    }                  
+    else if (reps >= 90 && reps < 100) {
       return goldRank;
     }
     else if (reps >= 100 && reps < 120) {
@@ -288,6 +296,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
           />
         </Col>
         <Col span={24}>
+          <div className="ant-statistic-title">Time table</div>
           <Table
             pagination={false}
             dataSource={generateDataSource(

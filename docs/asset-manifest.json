@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/benchmark/static/css/main.9fcab8e4.chunk.css",
-    "main.js": "/benchmark/static/js/main.dea5ad58.chunk.js",
-    "main.js.map": "/benchmark/static/js/main.dea5ad58.chunk.js.map",
+    "main.js": "/benchmark/static/js/main.0e9613b9.chunk.js",
+    "main.js.map": "/benchmark/static/js/main.0e9613b9.chunk.js.map",
     "runtime-main.js": "/benchmark/static/js/runtime-main.12b9a755.js",
     "runtime-main.js.map": "/benchmark/static/js/runtime-main.12b9a755.js.map",
     "static/css/2.ac03104f.chunk.css": "/benchmark/static/css/2.ac03104f.chunk.css",
@@ -14,6 +14,9 @@
     "static/css/2.ac03104f.chunk.css.map": "/benchmark/static/css/2.ac03104f.chunk.css.map",
     "static/css/main.9fcab8e4.chunk.css.map": "/benchmark/static/css/main.9fcab8e4.chunk.css.map",
     "static/js/2.400a2506.chunk.js.LICENSE.txt": "/benchmark/static/js/2.400a2506.chunk.js.LICENSE.txt",
+    "static/media/bridges_1_rank.6d0d3701.png": "/benchmark/static/media/bridges_1_rank.6d0d3701.png",
+    "static/media/bridges_2_rank.a7a57fcf.png": "/benchmark/static/media/bridges_2_rank.a7a57fcf.png",
+    "static/media/bridges_3_rank.a0adb9b0.png": "/benchmark/static/media/bridges_3_rank.a0adb9b0.png",
     "static/media/castro_1_rank.5d853437.png": "/benchmark/static/media/castro_1_rank.5d853437.png",
     "static/media/castro_2_rank.ff45bedb.png": "/benchmark/static/media/castro_2_rank.ff45bedb.png",
     "static/media/castro_3_rank.9d73958f.png": "/benchmark/static/media/castro_3_rank.9d73958f.png",
@@ -23,14 +26,13 @@
     "static/media/flower_2_rank.6545fa51.png": "/benchmark/static/media/flower_2_rank.6545fa51.png",
     "static/media/flower_3_rank.29658fec.png": "/benchmark/static/media/flower_3_rank.29658fec.png",
     "static/media/gold_rank.55e30e6a.png": "/benchmark/static/media/gold_rank.55e30e6a.png",
-    "static/media/platinum_rank.a1d29ebe.png": "/benchmark/static/media/platinum_rank.a1d29ebe.png",
-    "static/media/silver_rank.1fe16b86.png": "/benchmark/static/media/silver_rank.1fe16b86.png"
+    "static/media/platinum_rank.a1d29ebe.png": "/benchmark/static/media/platinum_rank.a1d29ebe.png"
   },
   "entrypoints": [
     "static/js/runtime-main.12b9a755.js",
     "static/css/2.ac03104f.chunk.css",
     "static/js/2.400a2506.chunk.js",
     "static/css/main.9fcab8e4.chunk.css",
-    "static/js/main.dea5ad58.chunk.js"
+    "static/js/main.0e9613b9.chunk.js"
   ]
 }

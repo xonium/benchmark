@@ -12,8 +12,7 @@ import {
 import { observer, useLocalStore } from "mobx-react";
 import { BenchmarkGutter } from "../Global";
 import { IAthleteReps } from "../Types/types";
-import silverRank from "../Images/silver_rank.png";
-import goldRank from "../Images/gold_rank.png";
+
 import platinumRank from "../Images/platinum_rank.png";
 import diamondRank from "../Images/diamond_rank.png";
 import flowerRank1 from "../Images/flower_1_rank.png";
@@ -25,6 +24,9 @@ import castroRank3 from "../Images/castro_3_rank.png";
 import bridgesRank1 from "../Images/bridges_1_rank.png";
 import bridgesRank2 from "../Images/bridges_2_rank.png";
 import bridgesRank3 from "../Images/bridges_3_rank.png";
+import davidsdottirRank1 from "../Images/davidsdottir_1_rank.png";
+import davidsdottirRank2 from "../Images/davidsdottir_2_rank.png";
+import davidsdottirRank3 from "../Images/davidsdottir_3_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -187,8 +189,14 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
       return bridgesRank3;
     }                  
     else if (reps >= 90 && reps < 100) {
-      return goldRank;
+      return davidsdottirRank1;
     }
+    else if (reps >= 100 && reps < 110) {
+      return davidsdottirRank2;
+    }
+    else if (reps >= 110 && reps < 120) {
+      return davidsdottirRank3;
+    }        
     else if (reps >= 100 && reps < 120) {
       return platinumRank;
     }

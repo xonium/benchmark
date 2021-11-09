@@ -21,7 +21,7 @@ export const HomeData: IHomeResponse = {
         },
         Minutes: 5,
         RepsPerRound: 60,
-        MaxNumberOfRounds: 4
+        MaxNumberOfRounds: 3
       },
       WorkoutMovements: [
         {

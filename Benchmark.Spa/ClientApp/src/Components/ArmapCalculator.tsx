@@ -20,6 +20,9 @@ import diamondRank from "../Images/diamond_rank.png";
 import flowerRank1 from "../Images/flower_1_rank.png";
 import flowerRank2 from "../Images/flower_2_rank.png";
 import flowerRank3 from "../Images/flower_3_rank.png";
+import castroRank1 from "../Images/castro_1_rank.png";
+import castroRank2 from "../Images/castro_2_rank.png";
+import castroRank3 from "../Images/castro_3_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -163,9 +166,15 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     else if (reps >= 20 && reps < 30) {
       return flowerRank3;
     }
-    else if (reps >= 30 && reps < 60) {
-      return bronzeRank;
+    else if (reps >= 30 && reps < 40) {
+      return castroRank1;
     }
+    else if (reps >= 40 && reps < 50) {
+      return castroRank2;
+    }
+    else if (reps >= 50 && reps < 60) {
+      return castroRank3;
+    }        
     else if (reps >= 60 && reps < 80) {
       return silverRank;
     }

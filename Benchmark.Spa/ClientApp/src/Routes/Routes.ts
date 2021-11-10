@@ -121,4 +121,9 @@ export const Routes: Route[] = [
       }
     }
   },
+  {
+    name: RouteNames.StandaloneAmrapCalculator,
+    beforeEnter: scrollToTop,
+    pattern: "/standalone/amrap-calculator",
+  },  
 ];

@@ -73,7 +73,7 @@ export const Benchmark = observer(() => {
       </Col>
 
       <Col span={24}>
-        <Card title="Calculator">
+        <Card title="Calculator" extra={<RouterLink routeName={RouteNames.StandaloneAmrapCalculator}>Standalone calculator</RouterLink>}>
           <AmrapCalculator 
             wodLengthInSeconds={(benchmarkStore.selected?.WorkoutDefinition.Minutes ?? 0)*60}
             repsPerRound={benchmarkStore.selected?.WorkoutDefinition.RepsPerRound ?? 0}

@@ -3,6 +3,7 @@ import { Benchmark } from "../Views/Benchmark";
 import { Home } from "../Views/Home";
 import { Movement } from "../Views/Movement";
 import { Vocabulary } from "../Views/Vocabulary";
+import { StandaloneAmrapCalculator } from "../Views/StandaloneAmrapCalculator";
 
 export const ViewMap = {
     home: <MainLayout><Home /></MainLayout>,
@@ -10,4 +11,5 @@ export const ViewMap = {
     vocabulary: <MainLayout><Vocabulary /></MainLayout>,
     equipment: <MainLayout>equipment</MainLayout>,
     movement: <MainLayout><Movement /></MainLayout>,
+    standaloneAmrapCalculator: <MainLayout><StandaloneAmrapCalculator/></MainLayout>,
 };

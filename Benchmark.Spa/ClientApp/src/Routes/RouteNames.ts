@@ -5,6 +5,7 @@ interface IRouteNames {
     Vocabulary: string,
     Equipment: string,
     Movement: string,
+    StandaloneAmrapCalculator: string,
   }
 
   export const RouteNames : IRouteNames = {
@@ -14,4 +15,5 @@ interface IRouteNames {
     Vocabulary: "vocabulary",
     Equipment: "equipment",
     Movement: "movement",
+    StandaloneAmrapCalculator: "standaloneAmrapCalculator",
   }

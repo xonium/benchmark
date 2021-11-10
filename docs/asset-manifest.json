@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/benchmark/static/css/main.3c4d187e.chunk.css",
-    "main.js": "/benchmark/static/js/main.925d3736.chunk.js",
-    "main.js.map": "/benchmark/static/js/main.925d3736.chunk.js.map",
+    "main.js": "/benchmark/static/js/main.eee89783.chunk.js",
+    "main.js.map": "/benchmark/static/js/main.eee89783.chunk.js.map",
     "runtime-main.js": "/benchmark/static/js/runtime-main.07d26535.js",
     "runtime-main.js.map": "/benchmark/static/js/runtime-main.07d26535.js.map",
     "static/css/2.ac03104f.chunk.css": "/benchmark/static/css/2.ac03104f.chunk.css",
@@ -30,13 +30,16 @@
     "static/media/fikowski_3_rank.e32ca0fb.png": "/benchmark/static/media/fikowski_3_rank.e32ca0fb.png",
     "static/media/flower_1_rank.0316e53e.png": "/benchmark/static/media/flower_1_rank.0316e53e.png",
     "static/media/flower_2_rank.6545fa51.png": "/benchmark/static/media/flower_2_rank.6545fa51.png",
-    "static/media/flower_3_rank.29658fec.png": "/benchmark/static/media/flower_3_rank.29658fec.png"
+    "static/media/flower_3_rank.29658fec.png": "/benchmark/static/media/flower_3_rank.29658fec.png",
+    "static/media/toomey_1_rank.4c07f63b.png": "/benchmark/static/media/toomey_1_rank.4c07f63b.png",
+    "static/media/toomey_2_rank.b4a34838.png": "/benchmark/static/media/toomey_2_rank.b4a34838.png",
+    "static/media/toomey_3_rank.6e58769c.png": "/benchmark/static/media/toomey_3_rank.6e58769c.png"
   },
   "entrypoints": [
     "static/js/runtime-main.07d26535.js",
     "static/css/2.ac03104f.chunk.css",
     "static/js/2.5964d1d6.chunk.js",
     "static/css/main.3c4d187e.chunk.css",
-    "static/js/main.925d3736.chunk.js"
+    "static/js/main.eee89783.chunk.js"
   ]
 }

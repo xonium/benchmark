@@ -1,3 +1,5 @@
+import babyRank1 from "../Images/baby_1_rank.png";
+import babyRank2 from "../Images/baby_2_rank.png";
 import flowerRank1 from "../Images/flower_1_rank.png";
 import flowerRank2 from "../Images/flower_2_rank.png";
 import flowerRank3 from "../Images/flower_3_rank.png";
@@ -26,9 +28,15 @@ export interface IRankImageProps {
   const selectRankImage = (reps: number, totalReps: number) => {
     let rankPercentage = (reps / totalReps) * 100;
     
-    if (rankPercentage < 15) {
-      return flowerRank1;
-    }    
+    if (rankPercentage < 5) {
+      return babyRank1;
+    }
+    else if (rankPercentage >= 5 && rankPercentage < 10) {
+        return babyRank2;
+    }
+    else if (rankPercentage >= 10 && rankPercentage < 15) {
+        return flowerRank1;
+    }
     else if (rankPercentage >= 15 && rankPercentage < 20) {
       return flowerRank2;
     }

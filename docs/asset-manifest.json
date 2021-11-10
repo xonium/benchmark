@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/benchmark/static/css/main.3c4d187e.chunk.css",
-    "main.js": "/benchmark/static/js/main.7ec8a072.chunk.js",
-    "main.js.map": "/benchmark/static/js/main.7ec8a072.chunk.js.map",
+    "main.js": "/benchmark/static/js/main.b56b4108.chunk.js",
+    "main.js.map": "/benchmark/static/js/main.b56b4108.chunk.js.map",
     "runtime-main.js": "/benchmark/static/js/runtime-main.07d26535.js",
     "runtime-main.js.map": "/benchmark/static/js/runtime-main.07d26535.js.map",
     "static/css/2.ac03104f.chunk.css": "/benchmark/static/css/2.ac03104f.chunk.css",
@@ -14,6 +14,8 @@
     "static/css/2.ac03104f.chunk.css.map": "/benchmark/static/css/2.ac03104f.chunk.css.map",
     "static/css/main.3c4d187e.chunk.css.map": "/benchmark/static/css/main.3c4d187e.chunk.css.map",
     "static/js/2.5964d1d6.chunk.js.LICENSE.txt": "/benchmark/static/js/2.5964d1d6.chunk.js.LICENSE.txt",
+    "static/media/baby_1_rank.c409aa48.png": "/benchmark/static/media/baby_1_rank.c409aa48.png",
+    "static/media/baby_2_rank.4c619576.png": "/benchmark/static/media/baby_2_rank.4c619576.png",
     "static/media/bridges_1_rank.6d0d3701.png": "/benchmark/static/media/bridges_1_rank.6d0d3701.png",
     "static/media/bridges_2_rank.a7a57fcf.png": "/benchmark/static/media/bridges_2_rank.a7a57fcf.png",
     "static/media/bridges_3_rank.1430f37e.png": "/benchmark/static/media/bridges_3_rank.1430f37e.png",
@@ -40,6 +42,6 @@
     "static/css/2.ac03104f.chunk.css",
     "static/js/2.5964d1d6.chunk.js",
     "static/css/main.3c4d187e.chunk.css",
-    "static/js/main.7ec8a072.chunk.js"
+    "static/js/main.b56b4108.chunk.js"
   ]
 }

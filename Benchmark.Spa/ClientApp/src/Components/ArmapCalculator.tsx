@@ -31,6 +31,7 @@ import fikowskiRank3 from "../Images/fikowski_3_rank.png";
 import toomeyRank1 from "../Images/toomey_1_rank.png";
 import toomeyRank2 from "../Images/toomey_2_rank.png";
 import toomeyRank3 from "../Images/toomey_3_rank.png";
+import hogbergRank1 from "../Images/hogberg_1_rank.png";
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -220,7 +221,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
       return toomeyRank3;
     }
     else if (reps === 180) {
-      return diamondRank;
+      return hogbergRank1;
     }
   }
 

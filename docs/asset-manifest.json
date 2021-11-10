@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/benchmark/static/css/main.3c4d187e.chunk.css",
-    "main.js": "/benchmark/static/js/main.9415e4d1.chunk.js",
-    "main.js.map": "/benchmark/static/js/main.9415e4d1.chunk.js.map",
+    "main.js": "/benchmark/static/js/main.30979eef.chunk.js",
+    "main.js.map": "/benchmark/static/js/main.30979eef.chunk.js.map",
     "runtime-main.js": "/benchmark/static/js/runtime-main.07d26535.js",
     "runtime-main.js.map": "/benchmark/static/js/runtime-main.07d26535.js.map",
     "static/css/2.ac03104f.chunk.css": "/benchmark/static/css/2.ac03104f.chunk.css",
@@ -24,13 +24,13 @@
     "static/media/davidsdottir_1_rank.2aa8bd2e.png": "/benchmark/static/media/davidsdottir_1_rank.2aa8bd2e.png",
     "static/media/davidsdottir_2_rank.7d289c20.png": "/benchmark/static/media/davidsdottir_2_rank.7d289c20.png",
     "static/media/davidsdottir_3_rank.23b8863b.png": "/benchmark/static/media/davidsdottir_3_rank.23b8863b.png",
-    "static/media/diamond_rank.1c3ce7ee.png": "/benchmark/static/media/diamond_rank.1c3ce7ee.png",
     "static/media/fikowski_1_rank.23061429.png": "/benchmark/static/media/fikowski_1_rank.23061429.png",
     "static/media/fikowski_2_rank.8b1ea152.png": "/benchmark/static/media/fikowski_2_rank.8b1ea152.png",
     "static/media/fikowski_3_rank.e32ca0fb.png": "/benchmark/static/media/fikowski_3_rank.e32ca0fb.png",
     "static/media/flower_1_rank.0316e53e.png": "/benchmark/static/media/flower_1_rank.0316e53e.png",
     "static/media/flower_2_rank.6545fa51.png": "/benchmark/static/media/flower_2_rank.6545fa51.png",
     "static/media/flower_3_rank.29658fec.png": "/benchmark/static/media/flower_3_rank.29658fec.png",
+    "static/media/hogberg_1_rank.db7656e0.png": "/benchmark/static/media/hogberg_1_rank.db7656e0.png",
     "static/media/toomey_1_rank.882c2aa1.png": "/benchmark/static/media/toomey_1_rank.882c2aa1.png",
     "static/media/toomey_2_rank.59585dad.png": "/benchmark/static/media/toomey_2_rank.59585dad.png",
     "static/media/toomey_3_rank.43f411c3.png": "/benchmark/static/media/toomey_3_rank.43f411c3.png"
@@ -40,6 +40,6 @@
     "static/css/2.ac03104f.chunk.css",
     "static/js/2.5964d1d6.chunk.js",
     "static/css/main.3c4d187e.chunk.css",
-    "static/js/main.9415e4d1.chunk.js"
+    "static/js/main.30979eef.chunk.js"
   ]
 }

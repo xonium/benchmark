@@ -1,7 +1,6 @@
 import {
   Avatar,
   Col,
-  Divider,
   Form,
   InputNumber,
   Row,
@@ -13,7 +12,6 @@ import { observer, useLocalStore } from "mobx-react";
 import { BenchmarkGutter } from "../Global";
 import { IAthleteReps } from "../Types/types";
 
-import platinumRank from "../Images/platinum_rank.png";
 import diamondRank from "../Images/diamond_rank.png";
 import flowerRank1 from "../Images/flower_1_rank.png";
 import flowerRank2 from "../Images/flower_2_rank.png";
@@ -221,7 +219,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     else if (reps >= 170 && reps < 180) {
       return toomeyRank3;
     }
-    else if (reps >= 120) {
+    else if (reps === 180) {
       return diamondRank;
     }
   }

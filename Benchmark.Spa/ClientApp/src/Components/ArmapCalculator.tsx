@@ -12,26 +12,7 @@ import { observer, useLocalStore } from "mobx-react";
 import { BenchmarkGutter } from "../Global";
 import { IAthleteReps } from "../Types/types";
 
-import diamondRank from "../Images/diamond_rank.png";
-import flowerRank1 from "../Images/flower_1_rank.png";
-import flowerRank2 from "../Images/flower_2_rank.png";
-import flowerRank3 from "../Images/flower_3_rank.png";
-import castroRank1 from "../Images/castro_1_rank.png";
-import castroRank2 from "../Images/castro_2_rank.png";
-import castroRank3 from "../Images/castro_3_rank.png";
-import bridgesRank1 from "../Images/bridges_1_rank.png";
-import bridgesRank2 from "../Images/bridges_2_rank.png";
-import bridgesRank3 from "../Images/bridges_3_rank.png";
-import davidsdottirRank1 from "../Images/davidsdottir_1_rank.png";
-import davidsdottirRank2 from "../Images/davidsdottir_2_rank.png";
-import davidsdottirRank3 from "../Images/davidsdottir_3_rank.png";
-import fikowskiRank1 from "../Images/fikowski_1_rank.png";
-import fikowskiRank2 from "../Images/fikowski_2_rank.png";
-import fikowskiRank3 from "../Images/fikowski_3_rank.png";
-import toomeyRank1 from "../Images/toomey_1_rank.png";
-import toomeyRank2 from "../Images/toomey_2_rank.png";
-import toomeyRank3 from "../Images/toomey_3_rank.png";
-import hogbergRank1 from "../Images/hogberg_1_rank.png";
+import {RankImage} from "./RankImage"
 
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
@@ -165,72 +146,13 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     );
   };
 
-  const selectRankImage = (reps: number) => {
-    if (reps < 10) {
-      return flowerRank1;
-    }    
-    else if (reps >= 10 && reps < 20) {
-      return flowerRank2;
-    }
-    else if (reps >= 20 && reps < 30) {
-      return flowerRank3;
-    }
-    else if (reps >= 30 && reps < 40) {
-      return castroRank1;
-    }
-    else if (reps >= 40 && reps < 50) {
-      return castroRank2;
-    }
-    else if (reps >= 50 && reps < 60) {
-      return castroRank3;
-    }
-    else if (reps >= 60 && reps < 70) {
-      return bridgesRank1;
-    }
-    else if (reps >= 70 && reps < 80) {
-      return bridgesRank2;
-    }
-    else if (reps >= 80 && reps < 90) {
-      return bridgesRank3;
-    }                  
-    else if (reps >= 90 && reps < 100) {
-      return davidsdottirRank1;
-    }
-    else if (reps >= 100 && reps < 110) {
-      return davidsdottirRank2;
-    }
-    else if (reps >= 110 && reps < 120) {
-      return davidsdottirRank3;
-    }        
-    else if (reps >= 120 && reps < 130) {
-      return fikowskiRank1;
-    }
-    else if (reps >= 130 && reps < 140) {
-      return fikowskiRank2;
-    }
-    else if (reps >= 140 && reps < 150) {
-      return fikowskiRank3;
-    }
-    else if (reps >= 150 && reps < 160) {
-      return toomeyRank1;
-    }
-    else if (reps >= 160 && reps < 170) {
-      return toomeyRank2;
-    }
-    else if (reps >= 170 && reps < 180) {
-      return toomeyRank3;
-    }
-    else if (reps === 180) {
-      return hogbergRank1;
-    }
-  }
 
   return (
     <>
       <Row gutter={BenchmarkGutter}>
       <Col span={24}>
           <div style={{display:"flex", justifyContent: "center"}}>
-            <img src={selectRankImage(localStore.repsCount)} alt="ranks" style={{objectFit: "cover", maxHeight: "160px"}}/>
+            <RankImage reps={localStore.repsCount} totalReps={props.maxNumberOfRounds * props.repsPerRound}/>
           </div>
         </Col>
         <Col span={8}>

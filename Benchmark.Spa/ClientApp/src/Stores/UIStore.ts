@@ -1,6 +1,7 @@
 import { action, makeObservable, observable } from "mobx";
 import { Language, Weight } from "../Types/types";
 import { RootStore } from "./RootStore";
+import i18n from "i18next";
 
 export class UIStore {
     rootStore: RootStore;
@@ -23,10 +24,11 @@ export class UIStore {
     setLanguage(language: Language) {
         this.language = language;
         localStorage.setItem("benchmark.language", language);
+        i18n.changeLanguage(language.toLowerCase());
     }
 
     setWeight(weight: Weight) {
         this.weight = weight;
-        localStorage.setItem("benchmark.weight", weight);
+        localStorage.setItem("benchmark.weight", weight)
     }
 }

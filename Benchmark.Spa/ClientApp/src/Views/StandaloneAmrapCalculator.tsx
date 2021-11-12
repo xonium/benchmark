@@ -2,6 +2,7 @@ import { Card, Col, Form, InputNumber, Row } from "antd";
 import { observer, useLocalStore } from "mobx-react";
 import { AmrapCalculator } from "../Components/ArmapCalculator";
 import { BenchmarkGutter } from "../Global";
+import { useTranslation } from "react-i18next";
 
 export const StandaloneAmrapCalculator = observer(() => {
   const localStore = useLocalStore(() => ({
@@ -19,6 +20,8 @@ export const StandaloneAmrapCalculator = observer(() => {
     },
   }));
 
+  const { t } = useTranslation();
+
   const formItemLayout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 14 },
@@ -27,10 +30,10 @@ export const StandaloneAmrapCalculator = observer(() => {
   return (
     <Row gutter={BenchmarkGutter}>
       <Col span={24}>
-        <Card title="Configuration">
+        <Card title={t("configuration")}>
           <Form {...formItemLayout} layout={"horizontal"}>
             <Form.Item
-              label="Wod length in minutes"
+              label={t("wod_length_in_minutes")}
               className="benchmark-label"
             >
               <InputNumber
@@ -44,7 +47,7 @@ export const StandaloneAmrapCalculator = observer(() => {
                 }}
               />
             </Form.Item>
-            <Form.Item label="Reps per round" className="benchmark-label">
+            <Form.Item label={t("reps_per_round")} className="benchmark-label">
               <InputNumber
                 min={1}
                 max={100000}
@@ -56,7 +59,7 @@ export const StandaloneAmrapCalculator = observer(() => {
                 }}
               />
             </Form.Item>
-            <Form.Item label="Max number of rounds" className="benchmark-label">
+            <Form.Item label={t("max_number_of_rounds")} className="benchmark-label">
               <InputNumber
                 min={1}
                 max={100000}
@@ -72,7 +75,7 @@ export const StandaloneAmrapCalculator = observer(() => {
         </Card>
       </Col>
       <Col span={24}>
-        <Card title="Calculator">
+        <Card title={t("calculator")}>
           <AmrapCalculator
             wodLengthInSeconds={localStore.wodLengthInMinutes * 60}
             repsPerRound={localStore.repsPerRound}

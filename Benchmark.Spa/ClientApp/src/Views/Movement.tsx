@@ -2,9 +2,12 @@ import { Card, Col, Row } from "antd";
 import YouTube from "react-youtube";
 import { BenchmarkGutter, VideoOptions } from "../Global";
 import { useRootStore } from "../Stores/RootStoreContext";
+import { useTranslation } from "react-i18next";
 
 export const Movement = () => {
   const { movementStore } = useRootStore();
+  const { t } = useTranslation();
+
   return (
     <Row gutter={BenchmarkGutter}>
       <Col span={24}>
@@ -15,7 +18,7 @@ export const Movement = () => {
         />
       </Col>
       <Col span={24}>
-        <Card title="Standards">
+        <Card title={t("standards")}>
           <ul>
             {movementStore.selected?.Standards.map(
               (standard: string, index: number) => {
@@ -26,7 +29,7 @@ export const Movement = () => {
         </Card>
       </Col>
       <Col span={24}>
-        <Card title="Reference">
+        <Card title={t("reference")}>
           <a
             target="_blank"
             rel="noreferrer"

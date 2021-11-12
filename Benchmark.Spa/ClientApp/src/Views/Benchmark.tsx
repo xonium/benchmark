@@ -7,9 +7,11 @@ import { BenchmarkGutter, VideoOptions } from "../Global";
 import { RouteNames } from "../Routes/RouteNames";
 import { useRootStore } from "../Stores/RootStoreContext";
 import { IWorkoutMovement } from "../Types/types";
+import { useTranslation } from "react-i18next";
 
 export const Benchmark = observer(() => {
   const { benchmarkStore } = useRootStore();
+  const { t } = useTranslation();
 
   return (
     <Row gutter={BenchmarkGutter}>
@@ -26,7 +28,7 @@ export const Benchmark = observer(() => {
       </Col>
 
       <Col span={24}>
-        <Card title="Benchmark">
+        <Card title={t("benchmark")}>
           <Row gutter={BenchmarkGutter}>
             <Col span={24}>
               <Space>
@@ -44,7 +46,7 @@ export const Benchmark = observer(() => {
                 </Tag>
                 <span>
                   {benchmarkStore.selected?.WorkoutDefinition.Minutes}{" "}
-                  <span>minutes</span>
+                  <span>{t("minutes")}</span>
                 </span>
               </Space>
             </Col>
@@ -73,7 +75,7 @@ export const Benchmark = observer(() => {
       </Col>
 
       <Col span={24}>
-        <Card title="Calculator" extra={<RouterLink routeName={RouteNames.StandaloneAmrapCalculator}>Standalone calculator</RouterLink>}>
+        <Card title={t("calculator")} extra={<RouterLink routeName={RouteNames.StandaloneAmrapCalculator}>{t("standalone_calculator")}</RouterLink>}>
           <AmrapCalculator 
             wodLengthInSeconds={(benchmarkStore.selected?.WorkoutDefinition.Minutes ?? 0)*60}
             repsPerRound={benchmarkStore.selected?.WorkoutDefinition.RepsPerRound ?? 0}
@@ -85,3 +87,5 @@ export const Benchmark = observer(() => {
     </Row>
   );
 });
+
+

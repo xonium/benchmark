@@ -15,6 +15,8 @@ import { IAthleteReps } from "../Types/types";
 
 import {RankImage} from "./RankImage"
 
+import { useTranslation } from "react-i18next";
+
 export interface IAmrapCalculatorProps {
   wodLengthInSeconds: number;
   repsPerRound: number;
@@ -71,6 +73,8 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     }
   }, [props.repsPerRound, localStore]);
 
+  const { t } = useTranslation();
+
   const fmtMSS = (s: number) => {
     return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
   };
@@ -105,22 +109,22 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
 
   const columns = [
     {
-      title: "Time",
+      title: t("time"),
       dataIndex: "time",
       key: "time",
     },
     {
-      title: "Round",
+      title: t("round"),
       dataIndex: "round",
       key: "round",
     },
     {
-      title: "Reps",
+      title: t("reps"),
       dataIndex: "reps",
       key: "reps",
     },
     {
-      title: "Total reps",
+      title: t("total_reps"),
       dataIndex: "totalReps",
       key: "totalReps",
     },
@@ -168,7 +172,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
         <Col span={8}>
           <Form {...formItemLayout}
           size={"middle"}>
-            <Form.Item label="Rounds" className="benchmark-label">
+            <Form.Item label={t("rounds")} className="benchmark-label">
               <InputNumber
                 value={localStore.rounds}
                 min={0}
@@ -177,7 +181,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
                 onChange={(value: number) => localStore.setRounds(value)}
               />
             </Form.Item>
-            <Form.Item label="Reps" className="benchmark-label">
+            <Form.Item label={t("reps")} className="benchmark-label">
               <InputNumber
                 value={localStore.reps}
                 min={-1}
@@ -207,7 +211,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
         </Col>
         {props.athleteReps && (
           <Col span={24}>
-            <div className="ant-statistic-title">Athletes scores</div>
+            <div className="ant-statistic-title">{t("athletes_scores")}</div>
             <div style={repsBorderStyle}>
               <div style={repsStyle}>
                 <p style={repNumberStyle}>{localStore.repsCount + 0}</p>
@@ -233,11 +237,11 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
           </Col>
         )}
         <Col span={12}>
-          <Statistic title="Total reps" value={localStore.repsCount} />
+          <Statistic title={t("total_reps")} value={localStore.repsCount} />
         </Col>
         <Col span={12}>
           <Statistic
-            title="Reps per second"
+            title={t("reps_per_second")}
             value={(
               (localStore.rounds * localStore.repsPerRound + localStore.reps) /
               props.wodLengthInSeconds
@@ -246,7 +250,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
         </Col>
         <Col span={12}>
           <Statistic
-            title="Seconds per rep"
+            title={t("seconds_per_rep")}
             value={(
               props.wodLengthInSeconds /
               (localStore.rounds * localStore.repsPerRound + localStore.reps)
@@ -255,7 +259,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
         </Col>
         <Col span={12}>
           <Statistic
-            title="Reps per 30 seconds"
+            title={t("reps_per_30_seconds")}
             value={(
               ((localStore.rounds * localStore.repsPerRound + localStore.reps) /
                 props.wodLengthInSeconds) *
@@ -264,7 +268,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
           />
         </Col>
         <Col span={24}>
-          <div className="ant-statistic-title">Time table</div>
+          <div className="ant-statistic-title">{t("time_table")}</div>
           <Table
             pagination={false}
             dataSource={generateDataSource(

@@ -166,7 +166,8 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     <>
       <Row gutter={BenchmarkGutter}>
         <Col span={8}>
-          <Form {...formItemLayout}>
+          <Form {...formItemLayout}
+          size={"middle"}>
             <Form.Item label="Rounds" className="benchmark-label">
               <InputNumber
                 value={localStore.rounds}
@@ -185,10 +186,10 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
                 onChange={(value: number) => localStore.setReps(value)}
               />
             </Form.Item>
-          </Form>
+          </Form>         
         </Col>
         <Col span={16}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex", justifyContent: "center", height: '100%', alignItems: "center" }}>
             <RankImage
               reps={localStore.repsCount}
               totalReps={props.maxNumberOfRounds * localStore.repsPerRound}

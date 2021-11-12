@@ -17,11 +17,3 @@
   align-items: center;
   height: 64px;  
 }
-
-.benchmark-label label {
-  height: 38px; 
-}
-
-.benchmark-label {
-  margin-bottom: 0;
-}

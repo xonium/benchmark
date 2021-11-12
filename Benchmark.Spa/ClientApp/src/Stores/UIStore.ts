@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
-import { Language } from "../Types/types";
+import { Language, Weight } from "../Types/types";
 import { RootStore } from "./RootStore";
 
 export class UIStore {
@@ -10,13 +10,21 @@ export class UIStore {
 
         makeObservable(this, {
             language: observable,
-            setLanguage: action
+            weight: observable,
+            setLanguage: action,
+            setWeight: action
         });
     }
     
     language: Language = "En";
 
+    weight: Weight = "Lbs";
+
     setLanguage(language: Language) {
         this.language = language;
+    }
+
+    setWeight(weight: Weight) {
+        this.weight = weight;
     }
 }

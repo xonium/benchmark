@@ -58,3 +58,5 @@ export interface IAthlete {
 }
 
 export type Language = "En" | "Sv";
+
+export type Weight = "Kg" | "Lbs";

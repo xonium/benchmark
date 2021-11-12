@@ -1,4 +1,4 @@
-import { Col, Layout, Row, Switch } from "antd";
+import { Col, Layout, Row, Space, Switch } from "antd";
 import { Header, Content, Footer } from "antd/lib/layout/layout";
 import { useRootStore } from "../Stores/RootStoreContext";
 import { Vm } from "./MainLayoutVm";
@@ -28,13 +28,24 @@ export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
                   routerStore.goTo(RouteNames.Home);
                 }}
               />
-              <Switch
-                checkedChildren={"Svenska"}
-                unCheckedChildren={"English"}
-                onChange={(languageChange: boolean) =>
-                  Vm.OnLanguageChange(languageChange, UIStore)
-                }
-              />
+              <div>
+                <Space>
+                  <Switch
+                    checkedChildren={"Kg"}
+                    unCheckedChildren={"Lbs"}
+                    onChange={(weightChange: boolean) =>
+                      Vm.OnWeightChange(weightChange, UIStore)
+                    }
+                  />
+                  <Switch
+                    checkedChildren={"Svenska"}
+                    unCheckedChildren={"English"}
+                    onChange={(languageChange: boolean) =>
+                      Vm.OnLanguageChange(languageChange, UIStore)
+                    }
+                  />
+                </Space>
+              </div>
             </div>
           </Col>
         </Row>

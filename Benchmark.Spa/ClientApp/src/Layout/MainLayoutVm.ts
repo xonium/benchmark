@@ -9,7 +9,14 @@ export const Vm = {
             UIStore.setLanguage("En");
           }
 
-      console.log(UIStore.language);
-      
+      console.log(UIStore.language); 
+    },
+    OnWeightChange : (weightChange: boolean, UIStore: UIStore) => {
+      if (weightChange) {
+        UIStore.setWeight("Kg");
+      } else {
+        UIStore.setWeight("Lbs");
+      }
+      console.log(UIStore.weight); 
     }
 }

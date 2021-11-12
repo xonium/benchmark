@@ -22,9 +22,11 @@ export class UIStore {
 
     setLanguage(language: Language) {
         this.language = language;
+        localStorage.setItem("benchmark.language", language);
     }
 
     setWeight(weight: Weight) {
         this.weight = weight;
+        localStorage.setItem("benchmark.weight", weight);
     }
 }

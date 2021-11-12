@@ -10,7 +10,7 @@ export const Home = () => {
     <Row>
       {benchmarkStore.benchmarks.map((benchmark) => {
         return (
-          <Col {...cardSize}>
+          <Col key={1} {...cardSize}>
             <Card
               key={1}
               hoverable

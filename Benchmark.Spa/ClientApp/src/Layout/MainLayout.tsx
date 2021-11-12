@@ -4,10 +4,11 @@ import { useRootStore } from "../Stores/RootStoreContext";
 import { Vm } from "./MainLayoutVm";
 import {HomeOutlined} from '@ant-design/icons';
 import { RouteNames } from "../Routes/RouteNames";
+import { observer } from "mobx-react-lite";
 
 interface LayoutProps {}
 
-export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
+export const MainLayout = observer((props: React.PropsWithChildren<LayoutProps>) => {
   const { UIStore, routerStore } = useRootStore();
 
   return (
@@ -33,6 +34,7 @@ export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
                   <Switch
                     checkedChildren={"Kg"}
                     unCheckedChildren={"Lbs"}
+                    checked={UIStore.weight === "Kg"}
                     onChange={(weightChange: boolean) =>
                       Vm.OnWeightChange(weightChange, UIStore)
                     }
@@ -40,6 +42,7 @@ export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
                   <Switch
                     checkedChildren={"Svenska"}
                     unCheckedChildren={"English"}
+                    checked={UIStore.language === "Sv"}
                     onChange={(languageChange: boolean) =>
                       Vm.OnLanguageChange(languageChange, UIStore)
                     }
@@ -68,4 +71,4 @@ export const MainLayout = (props: React.PropsWithChildren<LayoutProps>) => {
       <Footer></Footer>
     </Layout>
   );
-};
+});

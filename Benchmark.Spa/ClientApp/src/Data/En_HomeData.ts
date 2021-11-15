@@ -2,7 +2,7 @@ import { IHomeResponse } from "../Types/types";
 import comptrainstandard from "../Images/comptrain_standard.jpg";
 import davidsdottir from "../Images/davidsdottir.jpg";
 
-export const HomeData: IHomeResponse = {
+export const En_HomeData: IHomeResponse = {
   Benchmarks: [
     {
       Id: "123",

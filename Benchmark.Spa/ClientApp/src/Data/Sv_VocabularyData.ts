@@ -1,4 +1,4 @@
-export const VocabularyData = [{
+export const Sv_VocabularyData = [{
     Slug: "amrap",
     Name: "AMRAP",
     Description: "As Many Rounds/Reps Possible",

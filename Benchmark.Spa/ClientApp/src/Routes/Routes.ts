@@ -32,9 +32,9 @@ export const Routes: Route[] = [
         routerStore: RouterStore
       ) => {
         const { rootStore } = routerStore.options;
-        const { benchmarkStore } = rootStore as RootStore;
+        const { benchmarkStore, UIStore } = rootStore as RootStore;
 
-        var data = await DataLoader.Home();
+        var data = await DataLoader.Home(UIStore.language);
         benchmarkStore.setBenchmarks(data.Benchmarks);
       }
   },
@@ -48,8 +48,8 @@ export const Routes: Route[] = [
       routerStore: RouterStore
     ) => {
       const { rootStore } = routerStore.options;
-      const { benchmarkStore } = rootStore as RootStore;
-      var data = await DataLoader.Benchmark(toState.params["slug"]);
+      const { benchmarkStore, UIStore } = rootStore as RootStore;
+      var data = await DataLoader.Benchmark(toState.params["slug"], UIStore.language);
       if (data !== undefined) {
         benchmarkStore.setSelected(data);
       }
@@ -68,9 +68,9 @@ export const Routes: Route[] = [
       routerStore: RouterStore
     ) => {
       const { rootStore } = routerStore.options;
-      const { vocabularyStore } = rootStore as RootStore;
+      const { vocabularyStore, UIStore } = rootStore as RootStore;
 
-      var data = await DataLoader.Vocabulary(toState.params["slug"]);
+      var data = await DataLoader.Vocabulary(toState.params["slug"], UIStore.language);
       if (data !== undefined) {
         vocabularyStore.setSelected(data);
       }
@@ -89,9 +89,9 @@ export const Routes: Route[] = [
       routerStore: RouterStore
     ) => {
       const { rootStore } = routerStore.options;
-      const { vocabularyStore } = rootStore as RootStore;
+      const { vocabularyStore, UIStore } = rootStore as RootStore;
 
-      var data = await DataLoader.Vocabulary(toState.params["slug"]);
+      var data = await DataLoader.Vocabulary(toState.params["slug"], UIStore.language);
       if (data !== undefined) {
         vocabularyStore.setSelected(data);
       }
@@ -110,9 +110,9 @@ export const Routes: Route[] = [
       routerStore: RouterStore
     ) => {
       const { rootStore } = routerStore.options;
-      const { movementStore } = rootStore as RootStore;
+      const { movementStore, UIStore} = rootStore as RootStore;
 
-      var data = await DataLoader.Movement(toState.params["slug"]);
+      var data = await DataLoader.Movement(toState.params["slug"], UIStore.language);
       if (data !== undefined) {
         movementStore.setSelected(data);
       }

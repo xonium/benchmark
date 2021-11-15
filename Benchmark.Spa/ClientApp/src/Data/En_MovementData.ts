@@ -1,6 +1,6 @@
 import { IMovement } from "../Types/types";
 
-export const MovementData: IMovement[] = [
+export const En_MovementData: IMovement[] = [
   {
     Hash: "123",
     Slug: "thruster",

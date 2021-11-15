@@ -3,8 +3,9 @@ import YouTube from "react-youtube";
 import { BenchmarkGutter, VideoOptions } from "../Global";
 import { useRootStore } from "../Stores/RootStoreContext";
 import { useTranslation } from "react-i18next";
+import { observer } from "mobx-react";
 
-export const Movement = () => {
+export const Movement = observer(() => {
   const { movementStore } = useRootStore();
   const { t } = useTranslation();
 
@@ -41,4 +42,4 @@ export const Movement = () => {
       </Col>
     </Row>
   );
-};
+});

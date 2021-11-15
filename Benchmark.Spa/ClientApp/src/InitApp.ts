@@ -88,7 +88,7 @@ i18n
           "reps": "Repetitioner",
           "standalone_calculator": "Fristående kalkylator",
           "athletes_scores": "Atleters poäng",
-          "total_reps": "Totalt antal repetitioner",
+          "total_reps": "Totalt antal",
           "reps_per_second": "Repetitioner per sekund",
           "seconds_per_rep" : "Sekunder per repetition",
           "reps_per_30_seconds" : "Repetitioner per 30 sekunder",

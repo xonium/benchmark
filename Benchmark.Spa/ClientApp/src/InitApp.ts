@@ -86,7 +86,14 @@ i18n
           "female": "Female",
           "undecided": "Undecided",
           "lbs": "lbs",
-          "kg": "kg"
+          "kg": "kg",
+          "gender": "Gender",
+          "gender_extra" : "The weights for the movements are controlled by your gender",
+          "weight_measurement" : "Weight measurement",
+          "weight_measurement_extra" : "The type of measurement used for movements that require weight",
+          "language" : "Language",
+          "language_extra" : "The language for the descriptive texts troughout the application",
+          "settings" : "Settings"
         }
       },
       sv: {
@@ -116,7 +123,14 @@ i18n
           "female": "Kvinna",
           "undecided": "Obestämd",
           "lbs": "lbs",
-          "kg": "kg"
+          "kg": "kg",
+          "gender": "Kön",
+          "gender_extra" : "Vikterna för rörelserna styrs av ditt kön",
+          "weight_measurement" : "Viktmått",
+          "weight_measurement_extra" : "Den typ av mått som används för rörelser som kräver vikt",
+          "language" : "Språk",
+          "language_extra" : "Språket för de beskrivande texterna i hela applikationen",
+          "settings" : "Inställningar"
         }
       }
     },

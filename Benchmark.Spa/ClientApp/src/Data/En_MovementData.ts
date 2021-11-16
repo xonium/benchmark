@@ -47,9 +47,14 @@ export const En_MovementData: IMovement[] = [
     Name: "Power clean",
     NamePlural: "Power cleans",
     YoutubeId: "KwYJTpQ_x5A",
-    Standards: [],
-    ReferenceLink: "",
-    ReferenceDescription: "Crossfit open 2021 week 3 - page 4",
+    Standards: [
+      "The barbell begins on the ground.",
+      "Touch and go is permitted.",
+      "No bouncing.",
+      "The barbell must come up to the shoulders, with the hips and knees fully extended and the elbows in front of the bar"
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/11.5_pdf.pdf",
+    ReferenceDescription: "Crossfit open 2011 week 5 - page 1",
   },
   {
     Hash: "127",
@@ -57,8 +62,15 @@ export const En_MovementData: IMovement[] = [
     Name: "Hang power snatch",
     NamePlural: "Hang power snatches",
     YoutubeId: "-mLzQdVAwlw",
-    Standards: [],
-    ReferenceLink: "",
-    ReferenceDescription: "Crossfit open 2021 week 3 - page 4",
+    Standards: [
+      "This movement begins with the athlete deadlifting the barbell and stopping at this position prior to snatching.",
+      "The athlete may not lower the bar past the knees after deadlifting the weight.",
+      "This is not a ground-to-overhead any way.",
+      "The barbell must be received in the overhead position.",
+      "Only the feet may touch the ground during the lift.",
+      "The barbell must come to full lockout overhead, with the hips, knees and arms fully extended, and the bar directly over the middle of the body."
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/event2-2017teamseries-score-983n2haweuqmnd327.pdf",
+    ReferenceDescription: "Crossfit team series 2017 event 2 - page 3",
   },  
 ];

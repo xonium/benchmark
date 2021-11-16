@@ -17,7 +17,7 @@ export const Sv_MovementData: IMovement[] = [
         "Idrottare får INTE få hjälp med att flytta eller återställa sin skivstång.",
     ],
     ReferenceLink: "https://s3.amazonaws.com/crossfitpubliccontent/2-21-3-Scorecards-RxdScaledMasters-sjnhey653bdge523da.pdf",
-    ReferenceDescription: "Crossfit open 2021 week 3 - page 4",
+    ReferenceDescription: "Crossfit open 2021 vecka 3 - sida 4",
   },
   {
     Hash: "124",
@@ -39,7 +39,7 @@ export const Sv_MovementData: IMovement[] = [
         "Om ett “no rep” tas emot av någon anledning, måste hela repetitionen upprepas."
     ],
     ReferenceLink: "https://games-assets.crossfit.com/asdofi349854kjsd_0.pdf",
-    ReferenceDescription: "Crossfit open 2020 week 1 - page 3",
+    ReferenceDescription: "Crossfit open 2020 vecka 1 - sida 3",
   },
   {
     Hash: "126",
@@ -47,9 +47,14 @@ export const Sv_MovementData: IMovement[] = [
     Name: "Styrkevändning",
     NamePlural: "Styrkevändningar",
     YoutubeId: "KwYJTpQ_x5A",
-    Standards: [],
-    ReferenceLink: "",
-    ReferenceDescription: "Crossfit open 2021 week 3 - page 4",
+    Standards: [
+      "Skivstången börjar på marken.",
+      "'Touch and go' är tillåtet.",
+      "Ingen studsning av skivstång mot marken.",
+      "Skivstången måste komma upp till axlarna, med höfter och knän helt utsträckta och armbågarna framför stången."
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/11.5_pdf.pdf",
+    ReferenceDescription: "Crossfit open 2011 vecka 5 - sida 1",
   },
   {
     Hash: "127",
@@ -57,8 +62,15 @@ export const Sv_MovementData: IMovement[] = [
     Name: "Hängstyrkeryck",
     NamePlural: "Hängstyrkeryck",
     YoutubeId: "-mLzQdVAwlw",
-    Standards: [],
-    ReferenceLink: "",
-    ReferenceDescription: "Crossfit open 2021 week 3 - page 4",
+    Standards: [
+      "Denna rörelse börjar med att atleten marklyfter skivstången och stannar vid denna position innan atleten rycker.",
+      "Atleten får inte sänka stången förbi knäna efter att ha marklyft vikten.",
+      "Detta är inte en 'ground-to-overhead' på något vis.",
+      "Skivstången måste tas emot över huvudet.",
+      "Endast fötterna får nudda marken under lyftet.",
+      "Skivstången måste komma till full utlåsning ovanför huvudet, med höfter, knän och armar helt utsträckta och stången direkt över mitten av kroppen."
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/event2-2017teamseries-score-983n2haweuqmnd327.pdf",
+    ReferenceDescription: "Crossfit lag serie 2017 evenemang 2 - sida 3",
   },  
 ];

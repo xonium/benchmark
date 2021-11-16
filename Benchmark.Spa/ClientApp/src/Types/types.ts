@@ -38,7 +38,8 @@ export interface IWorkoutMovement {
     Slug: string,
     Name: string,
     NamePlural: string,
-    Reps: number,    
+    Reps: number,
+    Weight?: IWeight,
 }
 
 export interface IVocabulary {
@@ -57,6 +58,15 @@ export interface IAthlete {
     ImageSrc: string
 }
 
+export interface IWeight {
+    FemaleLbs: number,
+    MaleLbs: number,
+    FemaleKgs: number,
+    MaleKgs: number
+}
+
 export type Language = "En" | "Sv";
 
 export type Weight = "Kg" | "Lbs";
+
+export type Gender = "Male" | "Female" | "Undecided";

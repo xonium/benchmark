@@ -1,7 +1,7 @@
 import { createBrowserHistory } from 'history';
 import { HistoryAdapter } from "mobx-state-router";
 import { RootStore } from "./Stores/RootStore";
-import { Language, Weight } from "./Types/types";
+import { Gender, Language, Weight } from "./Types/types";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -39,6 +39,13 @@ export const initApp = async () => {
     }
   }
 
+  let gender = localStorage.getItem("benchmark.gender");
+  if (gender !== null) {
+    UIStore.setGender(gender as Gender)
+  } else {
+    UIStore.setGender("Female");
+  }
+
   const historyAdapter = new HistoryAdapter(routerStore, browserHistory);
   historyAdapter.observeRouterStateChanges();
 
@@ -74,7 +81,12 @@ i18n
           "wod_length_in_minutes" : "WOD length in minutes",
           "reps_per_round" : "Reps per round",
           "max_number_of_rounds" : "Max number of rounds",
-          "configuration" : "Configuration"
+          "configuration" : "Configuration",
+          "male": "Male",
+          "female": "Female",
+          "undecided": "Undecided",
+          "lbs": "lbs",
+          "kg": "kg"
         }
       },
       sv: {
@@ -99,7 +111,12 @@ i18n
           "wod_length_in_minutes" : "WOD längd i minuter",
           "reps_per_round" : "Repetitioner per runda",
           "max_number_of_rounds" : "Max antal rundor",
-          "configuration" : "Konfiguration"
+          "configuration" : "Konfiguration",
+          "male": "Man",
+          "female": "Kvinna",
+          "undecided": "Obestämd",
+          "lbs": "lbs",
+          "kg": "kg"
         }
       }
     },

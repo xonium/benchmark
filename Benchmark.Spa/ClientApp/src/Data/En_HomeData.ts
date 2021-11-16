@@ -30,6 +30,12 @@ export const En_HomeData: IHomeResponse = {
           Name: "Thruster",
           NamePlural: "Thrusters",
           Reps: 10,
+          Weight: {
+            FemaleLbs: 65,
+            MaleLbs: 95,
+            FemaleKgs: 29.5,
+            MaleKgs: 43
+          }
         },
         {
           Hash: "124",
@@ -44,6 +50,12 @@ export const En_HomeData: IHomeResponse = {
           Name: "Power clean",
           NamePlural: "Power cleans",
           Reps: 10,
+          Weight: {
+            FemaleLbs: 65,
+            MaleLbs: 95,
+            FemaleKgs: 29.5,
+            MaleKgs: 43
+          }
         },
         {
           Hash: "124",
@@ -58,6 +70,12 @@ export const En_HomeData: IHomeResponse = {
           Name: "Hang power snatch",
           NamePlural: "Hang power snatches",
           Reps: 10,
+          Weight: {
+            FemaleLbs: 65,
+            MaleLbs: 95,
+            FemaleKgs: 29.5,
+            MaleKgs: 43
+          }
         },
         {
           Hash: "124",

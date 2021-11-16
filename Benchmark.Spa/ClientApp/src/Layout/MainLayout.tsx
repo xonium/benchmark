@@ -1,15 +1,18 @@
-import { Col, Layout, Row, Space, Switch } from "antd";
+import { Col, Layout, Row, Select, Space, Switch } from "antd";
 import { Header, Content, Footer } from "antd/lib/layout/layout";
 import { useRootStore } from "../Stores/RootStoreContext";
 import { Vm } from "./MainLayoutVm";
 import {HomeOutlined} from '@ant-design/icons';
 import { RouteNames } from "../Routes/RouteNames";
 import { observer } from "mobx-react-lite";
+import { useTranslation } from "react-i18next";
 
 interface LayoutProps {}
 
+const { Option } = Select;
 export const MainLayout = observer((props: React.PropsWithChildren<LayoutProps>) => {
   const { UIStore, routerStore } = useRootStore();
+  const { t } = useTranslation();
 
   return (
     <Layout>
@@ -31,6 +34,11 @@ export const MainLayout = observer((props: React.PropsWithChildren<LayoutProps>)
               />
               <div>
                 <Space>
+                  <Select defaultValue={UIStore.gender} onChange={(value) => {UIStore.setGender(value)}}>
+                    <Option value="Male">{t("male")}</Option>
+                    <Option value="Female">{t("female")}</Option>
+                    <Option value="Undecided">{t("undecided")}</Option>
+                  </Select>
                   <Switch
                     checkedChildren={"Kg"}
                     unCheckedChildren={"Lbs"}

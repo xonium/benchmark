@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
-import { Language, Weight } from "../Types/types";
+import { Gender, Language, Weight } from "../Types/types";
 import { RootStore } from "./RootStore";
 import i18n from "i18next";
 import { RouteNames } from "../Routes/RouteNames";
@@ -13,14 +13,18 @@ export class UIStore {
         makeObservable(this, {
             language: observable,
             weight: observable,
+            gender: observable,
             setLanguage: action,
-            setWeight: action
+            setWeight: action,
+            setGender: action,
         });
     }
     
     language: Language = "En";
 
     weight: Weight = "Lbs";
+
+    gender: Gender = "Male";
 
     setLanguage(language: Language) {
         this.language = language;
@@ -37,5 +41,10 @@ export class UIStore {
     setWeight(weight: Weight) {
         this.weight = weight;
         localStorage.setItem("benchmark.weight", weight)
+    }
+
+    setGender(gender: Gender) {
+        this.gender = gender;
+        localStorage.setItem("benchmark.gender", gender);
     }
 }

@@ -30,6 +30,12 @@ export const Sv_HomeData: IHomeResponse = {
           Name: "Thruster",
           NamePlural: "Thrusters",
           Reps: 10,
+          Weight: {
+            FemaleLbs: 65,
+            MaleLbs: 95,
+            FemaleKgs: 29.5,
+            MaleKgs: 43
+          }
         },
         {
           Hash: "124",
@@ -44,6 +50,12 @@ export const Sv_HomeData: IHomeResponse = {
           Name: "Styrkevändning",
           NamePlural: "Styrkevändningar",
           Reps: 10,
+          Weight: {
+            FemaleLbs: 65,
+            MaleLbs: 95,
+            FemaleKgs: 29.5,
+            MaleKgs: 43
+          }
         },
         {
           Hash: "124",
@@ -58,6 +70,12 @@ export const Sv_HomeData: IHomeResponse = {
           Name: "Hängstyrkeryck",
           NamePlural: "Hängstyrkeryck",
           Reps: 10,
+          Weight: {
+            FemaleLbs: 65,
+            MaleLbs: 95,
+            FemaleKgs: 29.5,
+            MaleKgs: 43
+          }
         },
         {
           Hash: "124",

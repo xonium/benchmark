@@ -6,12 +6,29 @@ import { AmrapCalculator } from "../Components/ArmapCalculator";
 import { BenchmarkGutter, VideoOptions } from "../Global";
 import { RouteNames } from "../Routes/RouteNames";
 import { useRootStore } from "../Stores/RootStoreContext";
-import { IWorkoutMovement } from "../Types/types";
+import { Gender, IWeight, IWorkoutMovement, Weight } from "../Types/types";
 import { useTranslation } from "react-i18next";
 
 export const Benchmark = observer(() => {
-  const { benchmarkStore } = useRootStore();
+  const { benchmarkStore, UIStore } = useRootStore();
   const { t } = useTranslation();
+
+  const withWeight = (weightType: Weight, gender: Gender, weight?: IWeight) => {
+    if (weight === undefined) return null;
+
+    if (gender === "Female" && weightType === "Lbs") {
+      return <span>{t("with")} {weight.FemaleLbs} {t("lbs")}</span>;
+    }
+    else if (gender === "Male" && weightType === "Lbs") {
+      return <span>{t("with")} {weight.MaleLbs} {t("lbs")}</span>;
+    }
+    else if (gender === "Female" && weightType === "Kg") {
+      return <span>{t("with")} {weight.FemaleKgs} {t("kg")}</span>;
+    }
+    else if (gender === "Male" && weightType === "Kg") {
+      return <span>{t("with")} {weight.MaleKgs} {t("kg")}</span>;
+    }
+  }
 
   return (
     <Row gutter={BenchmarkGutter}>
@@ -57,7 +74,7 @@ export const Benchmark = observer(() => {
                   <Col span={24} key={movement.Hash + i}>
                     <Space>
                       <span>{movement.Reps}</span>
-                      <Tag color="geekblue">
+                      <Tag color="geekblue" style={{ margin: 0 }}>
                         <RouterLink
                           routeName={RouteNames.Movement}
                           params={{ slug: movement.Slug }}
@@ -65,6 +82,7 @@ export const Benchmark = observer(() => {
                           {movement.NamePlural}
                         </RouterLink>
                       </Tag>
+                      {withWeight(UIStore.weight, UIStore.gender, movement.Weight)}
                     </Space>
                   </Col>
                 );

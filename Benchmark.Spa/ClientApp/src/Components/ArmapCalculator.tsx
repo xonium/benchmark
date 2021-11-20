@@ -161,17 +161,14 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     );
   };
 
-  const formItemLayout = {
-    labelCol: { span: 6 },
-    wrapperCol: { span: 14 },
-  }
 
   return (
     <>
       <Row gutter={BenchmarkGutter}>
         <Col span={8}>
-          <Form {...formItemLayout}
-          size={"middle"}>
+          <Form
+            size={"middle"}
+            layout="vertical">
             <Form.Item label={t("rounds")} className="benchmark-label">
               <InputNumber
                 value={localStore.rounds}

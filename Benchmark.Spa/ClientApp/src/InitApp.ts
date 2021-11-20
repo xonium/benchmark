@@ -93,7 +93,8 @@ i18n
           "weight_measurement_extra" : "The type of measurement used for movements that require weight",
           "language" : "Language",
           "language_extra" : "The language for the descriptive texts troughout the application",
-          "settings" : "Settings"
+          "settings" : "Settings",
+          "benchmark_info_1" : "The information related to weights changes depending on the gender setting you have set.",
         }
       },
       sv: {
@@ -130,7 +131,8 @@ i18n
           "weight_measurement_extra" : "Den typ av mått som används för rörelser som kräver vikt",
           "language" : "Språk",
           "language_extra" : "Språket för de beskrivande texterna i hela applikationen",
-          "settings" : "Inställningar"
+          "settings" : "Inställningar",
+          "benchmark_info_1" : "Informationen relaterat till vikter ändras beroendes på vilken inställning för kön du har ställt in.",
         }
       }
     },

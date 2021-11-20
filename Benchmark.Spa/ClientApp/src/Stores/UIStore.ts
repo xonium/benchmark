@@ -14,9 +14,11 @@ export class UIStore {
             language: observable,
             weight: observable,
             gender: observable,
+            showSettingsDrawer: observable,
             setLanguage: action,
             setWeight: action,
             setGender: action,
+            setShowSettingsDrawer: action
         });
     }
     
@@ -25,6 +27,12 @@ export class UIStore {
     weight: Weight = "Lbs";
 
     gender: Gender = "Male";
+
+    showSettingsDrawer: boolean = false;
+
+    setShowSettingsDrawer(value: boolean) {
+      this.showSettingsDrawer = value;
+    }
 
     setLanguage(language: Language) {
         this.language = language;

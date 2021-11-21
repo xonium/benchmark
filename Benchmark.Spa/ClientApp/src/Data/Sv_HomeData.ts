@@ -90,15 +90,15 @@ export const Sv_HomeData: IHomeResponse = {
           Reps: 4,
           Athletes: [
             {
-              Name: "Davidsdottir",
+              Name: "Katrín Tanja Davíðsdóttir",
               ImageSrc: davidsdottir,
             },
             {
-              Name: "Davidsdottir",
+              Name: "Katrín Tanja Davíðsdóttir",
               ImageSrc: davidsdottir,
             },
             {
-              Name: "Davidsdottir",
+              Name: "Katrín Tanja Davíðsdóttir",
               ImageSrc: davidsdottir,
             },
           ],
@@ -107,7 +107,7 @@ export const Sv_HomeData: IHomeResponse = {
           Reps: 5,
           Athletes: [
             {
-              Name: "Davidsdottir",
+              Name: "Katrín Tanja Davíðsdóttir",
               ImageSrc: davidsdottir,
             },
           ],

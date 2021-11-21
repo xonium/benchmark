@@ -3,6 +3,7 @@ import {
   Col,
   Form,
   InputNumber,
+  Modal,
   Row,
   Slider,
   Statistic,
@@ -11,7 +12,7 @@ import {
 import { observer, useLocalStore } from "mobx-react";
 import { useEffect } from "react";
 import { BenchmarkGutter } from "../Global";
-import { IAthleteReps } from "../Types/types";
+import { IAthleteReps, IAthlete } from "../Types/types";
 
 import {RankImage} from "./RankImage"
 
@@ -29,6 +30,9 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     () => ({
       repsCount: 0,
       repsPerRound: props.repsPerRound,
+      currentSelectedAthlete: {Name: "", ImageSrc: ""},
+      currentSelectedAthleteScore: 0,
+      showAthleteModal: false,
       setRepsCount(value: number) {
         localStore.repsCount = value;
       },
@@ -57,6 +61,13 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
       setRepsPerRound(value: number) {
         localStore.repsPerRound = value;
       },
+      setShowAthleteModal(value: boolean) {
+        this.showAthleteModal = value;
+      },
+      setCurrentSelectedAthlete(value: IAthlete, reps: number) {
+        this.currentSelectedAthlete = value;
+        this.currentSelectedAthleteScore = reps;
+      }, 
       get rounds() {
         return Math.floor(this.repsCount / localStore.repsPerRound);
       },
@@ -138,6 +149,10 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
   };
   const repNumberStyle = { marginBottom: "4px" };
   const repsBorderStyle = { borderTop: "3px solid #d3adf7" };
+  const modalStyle = {display: "flex",
+  justifyContent: "center",
+  height: "100%",
+  alignItems: "center"};
 
   const fetchAthletes = (reps: number, athleteReps: IAthleteReps[]) => {
     var filtered = athleteReps.filter((x) => x.Reps === reps);
@@ -154,21 +169,27 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
       <Avatar.Group maxCount={1}>
         {filtered.map((x) => {
           return x.Athletes.map((a) => {
-            return <Avatar alt={a.Name} shape="square" src={a.ImageSrc} />;
+            return (
+              <span
+                onClick={() => {
+                  localStore.setCurrentSelectedAthlete(a, x.Reps);
+                  localStore.setShowAthleteModal(true);
+                }}
+              >
+                <Avatar alt={a.Name} shape="square" src={a.ImageSrc} />
+              </span>
+            );
           });
         })}
       </Avatar.Group>
     );
   };
 
-
   return (
     <>
       <Row gutter={BenchmarkGutter}>
         <Col span={8}>
-          <Form
-            size={"middle"}
-            layout="vertical">
+          <Form size={"middle"} layout="vertical">
             <Form.Item label={t("rounds")} className="benchmark-label">
               <InputNumber
                 value={localStore.rounds}
@@ -187,10 +208,17 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
                 onChange={(value: number) => localStore.setReps(value)}
               />
             </Form.Item>
-          </Form>         
+          </Form>
         </Col>
         <Col span={16}>
-          <div style={{ display: "flex", justifyContent: "center", height: '100%', alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              height: "100%",
+              alignItems: "center",
+            }}
+          >
             <RankImage
               reps={localStore.repsCount}
               totalReps={props.maxNumberOfRounds * localStore.repsPerRound}
@@ -231,6 +259,26 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
                 {fetchAthletes(localStore.repsCount + 4, props.athleteReps)}
               </div>
             </div>
+            <Modal
+              visible={localStore.showAthleteModal}
+              onCancel={() => localStore.setShowAthleteModal(false)}
+              footer={null}
+            >
+              <Row gutter={BenchmarkGutter}>
+                <Col span="24" style={modalStyle}>
+                  <Avatar
+                    size={100}
+                    src={localStore.currentSelectedAthlete.ImageSrc}
+                  ></Avatar>
+                </Col>
+                <Col span="24" style={modalStyle}>
+                  <h2>{localStore.currentSelectedAthlete.Name}</h2>
+                </Col>
+                <Col span="24" style={modalStyle}>
+                  <h2>{localStore.currentSelectedAthleteScore} {t("reps")}</h2>
+                </Col>
+              </Row>
+            </Modal>
           </Col>
         )}
         <Col span={12}>

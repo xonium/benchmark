@@ -148,7 +148,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     padding: "3px",
   };
   const repNumberStyle = { marginBottom: "4px" };
-  const repsBorderStyle = { borderTop: "3px solid #d3adf7" };
+  const repsBorderStyle = { borderTop: "3px solid #d3adf7", display: "inline-flex", width: "100%" };
   const modalStyle = {display: "flex",
   justifyContent: "center",
   height: "100%",
@@ -166,17 +166,18 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
     }
 
     return (
-      <Avatar.Group maxCount={1}>
+      <Avatar.Group maxCount={1} style={{display: "inline", cursor: "pointer", whiteSpace: "nowrap"}}>
         {filtered.map((x) => {
           return x.Athletes.map((a) => {
             return (
               <span
+                className="ant-avatar ant-avatar-square ant-avatar-image"
                 onClick={() => {
                   localStore.setCurrentSelectedAthlete(a, x.Reps);
                   localStore.setShowAthleteModal(true);
                 }}
               >
-                <Avatar alt={a.Name} shape="square" src={a.ImageSrc} />
+                <Avatar alt={a.Name} shape="square" src={a.ImageSrc} style={{cursor: "pointer"}} />
               </span>
             );
           });
@@ -269,6 +270,7 @@ export const AmrapCalculator = observer((props: IAmrapCalculatorProps) => {
                   <Avatar
                     size={100}
                     src={localStore.currentSelectedAthlete.ImageSrc}
+                    shape="square"
                   ></Avatar>
                 </Col>
                 <Col span="24" style={modalStyle}>

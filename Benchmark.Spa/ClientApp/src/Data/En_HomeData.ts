@@ -1,6 +1,6 @@
 import { IHomeResponse } from "../Types/types";
 import comptrainstandard from "../Images/comptrain_standard.jpg";
-import davidsdottir from "../Images/davidsdottir.jpg";
+import { AthleteReps } from "./AthleteReps";
 
 export const En_HomeData: IHomeResponse = {
   Benchmarks: [
@@ -85,34 +85,7 @@ export const En_HomeData: IHomeResponse = {
           Reps: 10,
         },
       ],
-      AthleteReps: [
-        {
-          Reps: 4,
-          Athletes: [
-            {
-              Name: "Katrín Tanja Davíðsdóttir",
-              ImageSrc: davidsdottir,
-            },
-            {
-              Name: "Katrín Tanja Davíðsdóttir",
-              ImageSrc: davidsdottir,
-            },
-            {
-              Name: "Katrín Tanja Davíðsdóttir",
-              ImageSrc: davidsdottir,
-            },
-          ],
-        },
-        {
-          Reps: 5,
-          Athletes: [
-            {
-              Name: "Katrín Tanja Davíðsdóttir",
-              ImageSrc: davidsdottir,
-            },
-          ],
-        },
-      ],
+      AthleteReps: AthleteReps
     },
   ],
 };

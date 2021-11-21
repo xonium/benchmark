@@ -21,10 +21,10 @@ export const MainLayout = observer(
           <Row>
             <Col
               xs={24}
-              sm={16}
-              md={{ span: 14, offset: 5 }}
-              lg={{ span: 10, offset: 7 }}
-              xl={{ span: 10, offset: 7 }}
+              sm={{ span: 16, offset: 4 }}
+              md={{ span: 8, offset: 8 }}
+              lg={{ span: 8, offset: 8 }}
+              xl={{ span: 8, offset: 8 }}
             >
               <div className="benchmark-language-bar">
                 <HomeOutlined
@@ -48,10 +48,10 @@ export const MainLayout = observer(
             <Row>
               <Col
                 xs={24}
-                sm={16}
-                md={{ span: 14, offset: 5 }}
-                lg={{ span: 10, offset: 7 }}
-                xl={{ span: 10, offset: 7 }}
+                sm={{ span: 16, offset: 4 }}
+                md={{ span: 8, offset: 8 }}
+                xl={{ span: 8, offset: 8 }}
+                lg={{ span: 8, offset: 8 }}
               >
                 {props.children}
 

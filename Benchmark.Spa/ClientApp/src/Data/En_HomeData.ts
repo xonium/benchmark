@@ -1,9 +1,60 @@
 import { IHomeResponse } from "../Types/types";
 import comptrainstandard from "../Images/comptrain_standard.jpg";
+import open221 from "../Images/22_1.jpg";
 import { AthleteReps } from "./AthleteReps";
 
 export const En_HomeData: IHomeResponse = {
   Benchmarks: [
+    {
+      Id: "1234",
+      Slug: "open-22-1",
+      Name: "Open 22.1",
+      ImageUrl: open221,
+      ImageText: "Open 22.1",
+      Summary:
+        "",
+      YoutubeId: "pHx02A0vR6c",
+      WorkoutDefinition: {
+        Vocabulary: {
+          Slug: "amrap",
+          Name: "AMRAP",
+          Description: "As Many Rounds/Reps Possible",
+        },
+        Minutes: 15,
+        RepsPerRound: 30,
+        MaxNumberOfRounds: 15
+      },
+      WorkoutMovements: [
+        {
+          Hash: "22_1_1",
+          Slug: "wall-walk",
+          Name: "Wall walk",
+          NamePlural: "Wall walks",
+          Reps: 3
+        },
+        {
+          Hash: "22_1_2",
+          Slug: "db-snatch",
+          Name: "Dumbbell snatch",
+          NamePlural: "Dumbbell snatches",
+          Reps: 12,
+          Weight: {
+            FemaleLbs: 35,
+            MaleLbs: 50,
+            FemaleKgs: 15,
+            MaleKgs: 22.5
+          }
+        },
+        {
+          Hash: "22_1_3",
+          Slug: "box-jump-over",
+          Name: "Box jump over",
+          NamePlural: "Box jump overs",
+          Reps: 15
+        },       
+      ],
+      AthleteReps: AthleteReps
+    },    
     {
       Id: "123",
       Slug: "comptrain-standard",

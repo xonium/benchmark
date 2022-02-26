@@ -2,6 +2,62 @@ import { IMovement } from "../Types/types";
 
 export const En_MovementData: IMovement[] = [
   {
+    Hash: "22_1_3",
+    Slug: "box-jump-over",
+    Name: "Box jump over",
+    NamePlural: "Box jump overs",
+    YoutubeId: "HHX_8rNIrYE",
+    Standards: [
+        "The athlete starts with both feet on the ground on one side of the box.",
+        "Do NOT angle the box and jump or step up on the corner.",
+        "A lateral jump over the box (starting with the feet parallel to the box) IS permitted.",
+        "Athletes MUST step down from the box for the rep to count. Rebounding into the next jump is NOT permitted. ",
+        "The rep is credited when both feet have touched the ground on the opposite side of the box. From there, they may begin their next rep.",
+        "A two-foot takeoff is always required, and only the athlete’s feet may touch the box.",
+        "After landing on the box, the athlete must step off to the other side.",
+        "Alternatively, the athlete may jump completely over the box.",
+        "If jumping over the box, the feet must pass over the box, not around it. A two-foot landing is required.",
+        "There is no requirement to stand tall while on top of the box.",
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/s3fs-public/2022-02/CFG22%2022.1%20Scorecard_Rx-Scaled_V10_0.pdf",
+    ReferenceDescription: "Crossfit open 2022 week 1 - page 7",
+  },    
+  {
+    Hash: "22_1_2",
+    Slug: "db-snatch",
+    Name: "Dumbbell snatch",
+    NamePlural: "Dumbbell snatches",
+    YoutubeId: "3mlhF3dptAo",
+    Standards: [
+        "The dumbbell snatch starts with both heads of the dumbbell on the ground.",
+        "The athlete must lift the dumbbell overhead in one motion. A clean and jerk is not allowed.",
+        "Touch-and-go is permitted. Bouncing the dumbbell is not allowed. ",
+        "Athletes must alternate arms after each repetition and may not alternate until a successful rep is achieved. ",
+        "The non-lifting hand or arm may NOT make contact with the legs or other parts of the body during the repetition.",
+        "The rep is credited when: - the arms, hips, and knees are fully extended; and - the dumbbell is clearly over the middle of the athlete’s body when viewed from profile.",
+        "The athlete may choose to do a split snatch. However, both feet must return in line under the athlete’s body while the dumbbell is locked out overhead for the repetition to count.",
+        "Athletes may not receive assistance moving or resetting the dumbbell."
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/s3fs-public/2022-02/CFG22%2022.1%20Scorecard_Rx-Scaled_V10_0.pdf",
+    ReferenceDescription: "Crossfit open 2022 week 1 - page 6",
+  },  
+  {
+    Hash: "22_1_1",
+    Slug: "wall-walk",
+    Name: "Wall walk",
+    NamePlural: "Wall walks",
+    YoutubeId: "NK_OcHEm8yM",
+    Standards: [
+        "Every rep begins and ends with the athlete lying down, with their chest, feet, and thighs touching the ground.",
+        "At the start and finish of each rep, both hands must touch the first tape line (fingers touching is OK).",
+        "Both hands must remain on the tape until both feet are on the wall.",
+        "At the top of the movement, both hands must touch the tape line for the 10-inch mark before the athlete can descend.",
+        "Any part of the hand may touch the tape line."
+    ],
+    ReferenceLink: "https://games-assets.crossfit.com/s3fs-public/2022-02/CFG22%2022.1%20Scorecard_Rx-Scaled_V10_0.pdf",
+    ReferenceDescription: "Crossfit open 2022 week 1 - page 3",
+  },
+  {
     Hash: "123",
     Slug: "thruster",
     Name: "Thruster",

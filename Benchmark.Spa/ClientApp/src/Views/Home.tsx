@@ -8,12 +8,11 @@ export const Home = observer(() => {
   const { benchmarkStore, routerStore } = useRootStore();
   const cardSize =  {xs: 24, sm: 24, md: 12, lg: 8 }
   return (
-    <Row>
+    <Row gutter={[16,16]}>
       {benchmarkStore.benchmarks.map((benchmark) => {
         return (
-          <Col key={1} {...cardSize}>
+          <Col key={benchmark.Id} {...cardSize}>
             <Card
-              key={1}
               hoverable
               style={{ width: '100%' }}
               onClick={() => {
